@@ -20,9 +20,10 @@ class CreateOrderController extends Controller{
      * @Route("/auth")
      */
 public function auth():Response{
-    $token = $this->amoCrmHelper->auth();
+    //$this->amoCrmHelper->auth();
+    $token = $this->amoCrmHelper->getAccessToken();
     $result = $this->amoCrmHelper->addLead($token);
     $result2 = $this->amoCrmHelper->addContact($token);
-    return new Response($result);
+    return new Response();
 }
 }
